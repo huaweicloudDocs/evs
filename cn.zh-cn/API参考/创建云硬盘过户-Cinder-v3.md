@@ -1,0 +1,227 @@
+# 创建云硬盘过户<a name="ZH-CN_TOPIC_0102728948"></a>
+
+## 功能介绍<a name="zh-cn_topic_0092887872_section44805042171914"></a>
+
+指定云硬盘来创建云硬盘过户记录，创建成功后，会返回过户记录ID以及身份认证密钥。
+
+云硬盘在过户过程中的状态变化如下：创建云硬盘过户后，云硬盘状态由“available”变为“awaiting-transfer”。当云硬盘过户被接收后，云硬盘状态变为“available”。
+
+## URI<a name="zh-cn_topic_0092887872_section21748494171940"></a>
+
+-   URI格式
+
+    POST /v3/\{project\_id\}/os-volume-transfer
+
+-   参数说明
+
+    <a name="table5162674110529"></a>
+    <table><thead align="left"><tr id="row4741724810529"><th class="cellrowborder" valign="top" width="28.57%" id="mcps1.1.4.1.1"><p id="p1559190910529"><a name="p1559190910529"></a><a name="p1559190910529"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="26.529999999999998%" id="mcps1.1.4.1.2"><p id="p5498513910529"><a name="p5498513910529"></a><a name="p5498513910529"></a>是否必选</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="44.9%" id="mcps1.1.4.1.3"><p id="p13854173318247"><a name="p13854173318247"></a><a name="p13854173318247"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="row4735411910529"><td class="cellrowborder" valign="top" width="28.57%" headers="mcps1.1.4.1.1 "><p id="p1047843010529"><a name="p1047843010529"></a><a name="p1047843010529"></a>project_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="26.529999999999998%" headers="mcps1.1.4.1.2 "><p id="p4344649310529"><a name="p4344649310529"></a><a name="p4344649310529"></a>是</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="44.9%" headers="mcps1.1.4.1.3 "><p id="p2950506910529"><a name="p2950506910529"></a><a name="p2950506910529"></a>项目ID。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
+## 约束<a name="zh-cn_topic_0092887872_section47607821172029"></a>
+
+只有当云硬盘状态为available时，支持创建过户，其他不支持过户的约束如下：
+
+-   包周期的云硬盘不支持过户。
+-   冻结的云硬盘不支持过户。
+-   加密的云硬盘不支持过户。
+-   云硬盘有对应的备份和快照时不支持过户。
+-   云硬盘有备份策略时不支持过户。
+-   DSS专属存储的云硬盘不支持过户。
+-   DESS专属存储的云硬盘不支持过户。
+-   EVS系统盘不支持过户。
+
+>![](public_sys-resources/icon-note.gif) **说明：**   
+>若使用以上不支持过户的云硬盘，则返回的错误码为400。  
+
+## 请求<a name="zh-cn_topic_0092887872_section3832507172056"></a>
+
+-   请求参数
+
+    <a name="zh-cn_topic_0093348348_table42671863"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0093348348_row12592542"><th class="cellrowborder" valign="top" width="18%" id="mcps1.1.5.1.1"><p id="zh-cn_topic_0093348348_p13362997"><a name="zh-cn_topic_0093348348_p13362997"></a><a name="zh-cn_topic_0093348348_p13362997"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="18%" id="mcps1.1.5.1.2"><p id="zh-cn_topic_0093348348_p8661001"><a name="zh-cn_topic_0093348348_p8661001"></a><a name="zh-cn_topic_0093348348_p8661001"></a>参数类型</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="20%" id="mcps1.1.5.1.3"><p id="zh-cn_topic_0093348348_p30452481"><a name="zh-cn_topic_0093348348_p30452481"></a><a name="zh-cn_topic_0093348348_p30452481"></a>是否必选</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="44%" id="mcps1.1.5.1.4"><p id="zh-cn_topic_0093348348_p50731910"><a name="zh-cn_topic_0093348348_p50731910"></a><a name="zh-cn_topic_0093348348_p50731910"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0093348348_row5187493615377"><td class="cellrowborder" valign="top" width="18%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0093348348_p4112025815377"><a name="zh-cn_topic_0093348348_p4112025815377"></a><a name="zh-cn_topic_0093348348_p4112025815377"></a>transfer</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="18%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0093348348_p4240658415377"><a name="zh-cn_topic_0093348348_p4240658415377"></a><a name="zh-cn_topic_0093348348_p4240658415377"></a>map&lt;string, string&gt;</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0093348348_p1238131615377"><a name="zh-cn_topic_0093348348_p1238131615377"></a><a name="zh-cn_topic_0093348348_p1238131615377"></a>是</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="44%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0093348348_p6336250715377"><a name="zh-cn_topic_0093348348_p6336250715377"></a><a name="zh-cn_topic_0093348348_p6336250715377"></a>标记创建云硬盘过户操作。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
+-   transfer参数说明
+
+    <a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_table881415614117"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row168152061012"><th class="cellrowborder" valign="top" width="18.181818181818183%" id="mcps1.1.5.1.1"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815961816"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815961816"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815961816"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="18.181818181818183%" id="mcps1.1.5.1.2"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p9815116514"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p9815116514"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p9815116514"></a>参数类型</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="20.202020202020204%" id="mcps1.1.5.1.3"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815176017"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815176017"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815176017"></a>是否必选</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="43.43434343434344%" id="mcps1.1.5.1.4"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p881596417"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p881596417"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p881596417"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row6815269119"><td class="cellrowborder" valign="top" width="18.181818181818183%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p15774191420418"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p15774191420418"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p15774191420418"></a>volume_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="18.181818181818183%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815126917"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815126917"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p11815126917"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.202020202020204%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p178154611118"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p178154611118"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p178154611118"></a>是</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="43.43434343434344%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p88151664117"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p88151664117"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p88151664117"></a>云硬盘ID。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row48151561014"><td class="cellrowborder" valign="top" width="18.181818181818183%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1781517616118"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1781517616118"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1781517616118"></a>name</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="18.181818181818183%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10815136119"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10815136119"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10815136119"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.202020202020204%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p98151467115"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p98151467115"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p98151467115"></a>否</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="43.43434343434344%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815196917"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815196917"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17815196917"></a>云硬盘过户记录的名称。除去开始和结尾的空格，最少1个字节，最大255个字节。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+-   请求样例
+
+    ```
+    {
+        "transfer": {
+            "volume_id": "c86b9af4-151d-4ead-b62c-5fb967af0e37", 
+            "name": "first volume"
+        }
+    }
+    ```
+
+
+## 响应<a name="section141610262378"></a>
+
+-   响应参数
+
+    <a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_table6685576181553"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row1296752181553"><th class="cellrowborder" valign="top" width="24.05%" id="mcps1.1.4.1.1"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p37928058181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p37928058181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p37928058181553"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="24.05%" id="mcps1.1.4.1.2"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p52273840181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p52273840181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p52273840181553"></a>参数类型</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="51.9%" id="mcps1.1.4.1.3"><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p42375363181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p42375363181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p42375363181553"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0093348348_row126419542911"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_p626410513299"><a name="zh-cn_topic_0093348348_p626410513299"></a><a name="zh-cn_topic_0093348348_p626410513299"></a>transfer</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_p22640519296"><a name="zh-cn_topic_0093348348_p22640519296"></a><a name="zh-cn_topic_0093348348_p22640519296"></a>map&lt;string, object&gt;</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_p42648512295"><a name="zh-cn_topic_0093348348_p42648512295"></a><a name="zh-cn_topic_0093348348_p42648512295"></a>云硬盘过户信息。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row45833953181553"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p21562735181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p21562735181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p21562735181553"></a>auth_key</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1751085181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1751085181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1751085181553"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p13253466181553"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p13253466181553"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p13253466181553"></a>云硬盘过户的身份认证密钥。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row12974480107"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1097410819109"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1097410819109"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1097410819109"></a>links</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p797448121011"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p797448121011"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p797448121011"></a>List&lt; Dict &gt;</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17974484101"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17974484101"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p17974484101"></a>云硬盘过户记录的链接。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row862121220101"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1762112141010"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1762112141010"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p1762112141010"></a>created_at</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4623123109"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4623123109"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4623123109"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p186221213104"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p186221213104"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p186221213104"></a>云硬盘过户记录的创建时间。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row569771417102"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p369761461010"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p369761461010"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p369761461010"></a>volume_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p769712143104"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p769712143104"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p769712143104"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p56979145107"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p56979145107"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p56979145107"></a>云硬盘ID。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row2457217151019"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p94571174106"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p94571174106"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p94571174106"></a>id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p174577172105"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p174577172105"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p174577172105"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p18457171718107"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p18457171718107"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p18457171718107"></a>云硬盘过户记录的ID。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_row527752431012"><td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10277112415105"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10277112415105"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p10277112415105"></a>name</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="24.05%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4277132441017"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4277132441017"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p4277132441017"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="51.9%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p827720241108"><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p827720241108"></a><a name="zh-cn_topic_0093348348_zh-cn_topic_0092887872_p827720241108"></a>云硬盘过户记录的名称。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+-   响应样例
+
+    ```
+    {
+        "transfer": {
+            "id": "1a7059f5-8ed7-45b7-8d05-2811e5d09f24", 
+            "created_at": "2015-02-25T03:56:53.081642", 
+            "name": "first volume", 
+            "volume_id": "c86b9af4-151d-4ead-b62c-5fb967af0e37", 
+            "auth_key": "9266c59563c84664", 
+            "links": [
+                {
+                    "href": "https://localhost/v3/firstproject/os-volume-transfer/3", 
+                    "rel": "self"
+                }, 
+                {
+                    "href": "https://localhost/firstproject/os-volume-transfer/3", 
+                    "rel": "bookmark"
+                }
+            ]
+        }
+    }
+    ```
+
+
+## 返回值<a name="zh-cn_topic_0092887872_section10353980172239"></a>
+
+-   正常
+
+    202
+
+
+## 错误码<a name="section431317151242"></a>
+
+请参考[错误码说明](错误码说明.md)。
+

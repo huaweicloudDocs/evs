@@ -1,0 +1,209 @@
+# 查询单个云硬盘快照详细信息<a name="ZH-CN_TOPIC_0102704704"></a>
+
+## 功能介绍<a name="section30030484111731"></a>
+
+查询单个云硬盘快照信息。
+
+## URI<a name="section14733765111731"></a>
+
+-   URI格式
+
+    GET /v3/\{project\_id\}/snapshots/\{snapshot\_id\}
+
+-   参数说明
+
+    <a name="table66271751111731"></a>
+    <table><thead align="left"><tr id="row56106054111731"><th class="cellrowborder" valign="top" width="28.57%" id="mcps1.1.4.1.1"><p id="p48296540111731"><a name="p48296540111731"></a><a name="p48296540111731"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="26.529999999999998%" id="mcps1.1.4.1.2"><p id="p19705674111731"><a name="p19705674111731"></a><a name="p19705674111731"></a>是否必选</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="44.9%" id="mcps1.1.4.1.3"><p id="p52655801111731"><a name="p52655801111731"></a><a name="p52655801111731"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="row37261521111731"><td class="cellrowborder" valign="top" width="28.57%" headers="mcps1.1.4.1.1 "><p id="p65393209111731"><a name="p65393209111731"></a><a name="p65393209111731"></a>project_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="26.529999999999998%" headers="mcps1.1.4.1.2 "><p id="p62358553111731"><a name="p62358553111731"></a><a name="p62358553111731"></a>是</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="44.9%" headers="mcps1.1.4.1.3 "><p id="p17878042111731"><a name="p17878042111731"></a><a name="p17878042111731"></a>项目ID。</p>
+    </td>
+    </tr>
+    <tr id="row26684654111731"><td class="cellrowborder" valign="top" width="28.57%" headers="mcps1.1.4.1.1 "><p id="p13973379111731"><a name="p13973379111731"></a><a name="p13973379111731"></a>snapshot_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="26.529999999999998%" headers="mcps1.1.4.1.2 "><p id="p58101900111731"><a name="p58101900111731"></a><a name="p58101900111731"></a>是</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="44.9%" headers="mcps1.1.4.1.3 "><p id="p8633458111731"><a name="p8633458111731"></a><a name="p8633458111731"></a>快照ID</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
+## 请求<a name="section28221468111731"></a>
+
+无
+
+## 响应<a name="section63055193111836"></a>
+
+-   响应参数
+
+    <a name="zh-cn_topic_0051408628_table46086870111836"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0051408628_row56202297111836"><th class="cellrowborder" valign="top" width="21.17788221177882%" id="mcps1.1.4.1.1"><p id="zh-cn_topic_0051408628_p56092213111836"><a name="zh-cn_topic_0051408628_p56092213111836"></a><a name="zh-cn_topic_0051408628_p56092213111836"></a>参数</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="21.17788221177882%" id="mcps1.1.4.1.2"><p id="zh-cn_topic_0051408628_p47175401111836"><a name="zh-cn_topic_0051408628_p47175401111836"></a><a name="zh-cn_topic_0051408628_p47175401111836"></a>参数类型</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="57.64423557644236%" id="mcps1.1.4.1.3"><p id="zh-cn_topic_0051408628_p11730844111836"><a name="zh-cn_topic_0051408628_p11730844111836"></a><a name="zh-cn_topic_0051408628_p11730844111836"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0051408628_row10674282111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p59310480111836"><a name="zh-cn_topic_0051408628_p59310480111836"></a><a name="zh-cn_topic_0051408628_p59310480111836"></a>snapshot</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p39419575111836"><a name="zh-cn_topic_0051408628_p39419575111836"></a><a name="zh-cn_topic_0051408628_p39419575111836"></a>map</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p61381158111836"><a name="zh-cn_topic_0051408628_p61381158111836"></a><a name="zh-cn_topic_0051408628_p61381158111836"></a>快照信息。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row15559516111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p52361272111836"><a name="zh-cn_topic_0051408628_p52361272111836"></a><a name="zh-cn_topic_0051408628_p52361272111836"></a>id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p13404600111836"><a name="zh-cn_topic_0051408628_p13404600111836"></a><a name="zh-cn_topic_0051408628_p13404600111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p34969797111836"><a name="zh-cn_topic_0051408628_p34969797111836"></a><a name="zh-cn_topic_0051408628_p34969797111836"></a>云硬盘快照ID。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row46292725111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p58723264111836"><a name="zh-cn_topic_0051408628_p58723264111836"></a><a name="zh-cn_topic_0051408628_p58723264111836"></a>status</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p58963956111836"><a name="zh-cn_topic_0051408628_p58963956111836"></a><a name="zh-cn_topic_0051408628_p58963956111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p47023540111836"><a name="zh-cn_topic_0051408628_p47023540111836"></a><a name="zh-cn_topic_0051408628_p47023540111836"></a>云硬盘快照的状态，具体请参见<a href="云硬盘快照状态.md">云硬盘快照状态</a>。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row20558679111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p54640283111836"><a name="zh-cn_topic_0051408628_p54640283111836"></a><a name="zh-cn_topic_0051408628_p54640283111836"></a>name</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p63786796111836"><a name="zh-cn_topic_0051408628_p63786796111836"></a><a name="zh-cn_topic_0051408628_p63786796111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p14293074111836"><a name="zh-cn_topic_0051408628_p14293074111836"></a><a name="zh-cn_topic_0051408628_p14293074111836"></a>云硬盘快照名称。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row61528809111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p17777665111836"><a name="zh-cn_topic_0051408628_p17777665111836"></a><a name="zh-cn_topic_0051408628_p17777665111836"></a>description</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p30704745111836"><a name="zh-cn_topic_0051408628_p30704745111836"></a><a name="zh-cn_topic_0051408628_p30704745111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p60132426111836"><a name="zh-cn_topic_0051408628_p60132426111836"></a><a name="zh-cn_topic_0051408628_p60132426111836"></a>云硬盘快照描述信息。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row4320926111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p14450739111836"><a name="zh-cn_topic_0051408628_p14450739111836"></a><a name="zh-cn_topic_0051408628_p14450739111836"></a>created_at</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p29659196111836"><a name="zh-cn_topic_0051408628_p29659196111836"></a><a name="zh-cn_topic_0051408628_p29659196111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p45391308111836"><a name="zh-cn_topic_0051408628_p45391308111836"></a><a name="zh-cn_topic_0051408628_p45391308111836"></a>云硬盘快照创建时间。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row3737236411149"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p80695711149"><a name="zh-cn_topic_0051408628_p80695711149"></a><a name="zh-cn_topic_0051408628_p80695711149"></a>update_at</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p6536351711149"><a name="zh-cn_topic_0051408628_p6536351711149"></a><a name="zh-cn_topic_0051408628_p6536351711149"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p2439511411149"><a name="zh-cn_topic_0051408628_p2439511411149"></a><a name="zh-cn_topic_0051408628_p2439511411149"></a>云硬盘快照更新时间。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row5868590111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p5593786111836"><a name="zh-cn_topic_0051408628_p5593786111836"></a><a name="zh-cn_topic_0051408628_p5593786111836"></a>metadata</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p50443518111836"><a name="zh-cn_topic_0051408628_p50443518111836"></a><a name="zh-cn_topic_0051408628_p50443518111836"></a>map</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p46118865111836"><a name="zh-cn_topic_0051408628_p46118865111836"></a><a name="zh-cn_topic_0051408628_p46118865111836"></a>云硬盘快照的元数据信息。</p>
+    <p id="p1678772717473"><a name="p1678772717473"></a><a name="p1678772717473"></a>如果元数据中包含__system__enableActive字段，则表示该快照为云服务器创建备份时自动生成的快照。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row12416602111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p66220711111836"><a name="zh-cn_topic_0051408628_p66220711111836"></a><a name="zh-cn_topic_0051408628_p66220711111836"></a>volume_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p62277393111836"><a name="zh-cn_topic_0051408628_p62277393111836"></a><a name="zh-cn_topic_0051408628_p62277393111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p43213914111836"><a name="zh-cn_topic_0051408628_p43213914111836"></a><a name="zh-cn_topic_0051408628_p43213914111836"></a>快照所属的云硬盘。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row53380907111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p28886228111836"><a name="zh-cn_topic_0051408628_p28886228111836"></a><a name="zh-cn_topic_0051408628_p28886228111836"></a>size</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p58083101111836"><a name="zh-cn_topic_0051408628_p58083101111836"></a><a name="zh-cn_topic_0051408628_p58083101111836"></a>int</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p39095984111836"><a name="zh-cn_topic_0051408628_p39095984111836"></a><a name="zh-cn_topic_0051408628_p39095984111836"></a>云硬盘快照大小。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row16319538111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p46814240111836"><a name="zh-cn_topic_0051408628_p46814240111836"></a><a name="zh-cn_topic_0051408628_p46814240111836"></a>os-extended-snapshot-attributes:project_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p33857106111836"><a name="zh-cn_topic_0051408628_p33857106111836"></a><a name="zh-cn_topic_0051408628_p33857106111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p6137764111836"><a name="zh-cn_topic_0051408628_p6137764111836"></a><a name="zh-cn_topic_0051408628_p6137764111836"></a>租户ID。</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0051408628_row55239881111836"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="zh-cn_topic_0051408628_p45245366111836"><a name="zh-cn_topic_0051408628_p45245366111836"></a><a name="zh-cn_topic_0051408628_p45245366111836"></a>os-extended-snapshot-attributes:progress</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="zh-cn_topic_0051408628_p40996011111836"><a name="zh-cn_topic_0051408628_p40996011111836"></a><a name="zh-cn_topic_0051408628_p40996011111836"></a>string</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="zh-cn_topic_0051408628_p18028606145913"><a name="zh-cn_topic_0051408628_p18028606145913"></a><a name="zh-cn_topic_0051408628_p18028606145913"></a>创建快照进度。</p>
+    </td>
+    </tr>
+    <tr id="row1598314715534"><td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.1 "><p id="p1316171114535"><a name="p1316171114535"></a><a name="p1316171114535"></a>user_id</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="21.17788221177882%" headers="mcps1.1.4.1.2 "><p id="p8316101125312"><a name="p8316101125312"></a><a name="p8316101125312"></a>String</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="57.64423557644236%" headers="mcps1.1.4.1.3 "><p id="p20348100143311"><a name="p20348100143311"></a><a name="p20348100143311"></a>预留属性。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
+-   响应样例
+
+    ```
+    {
+        "snapshot": {
+            "status": "available", 
+            "os-extended-snapshot-attributes:progress": "100%", 
+            "description": "daily backup", 
+            "created_at": "2013-02-25t04:13:17.000000", 
+            "metadata": { }, 
+            "volume_id": "5aa119a8-d25b-45a7-8d1b-88e127885635", 
+            "os-extended-snapshot-attributes:project_id": "0c2eba2c5af04d3f9e9d0d410b371fde", 
+            "size": 1, 
+            "user_id": "48d70679b8644035846b2cb53633c256", 
+            "id": "2bb856e1-b3d8-4432-a858-09e4ce939389", 
+            "name": "snap-001", 
+            "updated_at": null
+        }
+    }
+    ```
+
+    或
+
+    ```
+    {
+        "error": {
+            "message": "XXXX", 
+            "code": "XXX"
+        }
+    }
+    ```
+
+    其中error是泛指的错误，有badRequest、itemNotFound等，如报错：
+
+    ```
+    {
+        "itemNotFound": {
+            "message": "XXXX", 
+            "code": "XXX"
+        }
+    }
+    ```
+
+
+## 返回值<a name="section38811440112026"></a>
+
+-   正常
+
+    200
+
+
+## 错误码<a name="section431317151242"></a>
+
+请参考[错误码说明](错误码说明.md)。
+
