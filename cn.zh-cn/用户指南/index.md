@@ -13,6 +13,7 @@
     -   [Linux云硬盘扩容后处理（fdisk）](Linux云硬盘扩容后处理（fdisk）.md)
     -   [Linux云硬盘扩容后处理（parted）](Linux云硬盘扩容后处理（parted）.md)
     -   [Linux SCSI数据盘扩容后处理（fdisk）](Linux-SCSI数据盘扩容后处理（fdisk）.md)
+    -   [Linux系统盘扩容后处理（fdisk）](Linux系统盘扩容后处理（fdisk）.md)
 
 -   [管理加密云硬盘](管理加密云硬盘.md)
 -   [管理共享云硬盘](管理共享云硬盘.md)
